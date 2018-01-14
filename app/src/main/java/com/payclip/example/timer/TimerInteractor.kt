@@ -1,7 +1,6 @@
 package com.payclip.example.timer
 
 import com.payclip.arc.interactor.BaseInteractor
-import com.payclip.example.Android
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.launch
 import java.util.concurrent.TimeUnit

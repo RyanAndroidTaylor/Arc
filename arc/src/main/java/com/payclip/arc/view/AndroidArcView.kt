@@ -1,6 +1,5 @@
 package com.payclip.arc.view
 
-import android.view.LayoutInflater
 import android.view.View
 import com.payclip.arc.ArcAction
 import com.payclip.arc.ArcState
@@ -12,9 +11,5 @@ import com.payclip.arc.controller.ArcController
  */
 
 abstract class AndroidArcView<A : ArcAction, S : ArcState, T : ArcTrigger>(override val arcController: ArcController<A, S, T>,
-                                                                           inflater: LayoutInflater) : ArcView<A, S, T> {
-
-    abstract fun layoutId(): Int
-
-    val view: View = inflater.inflate(layoutId(), null)
+                                                                           val view: View) : ArcView<A, S, T> {
 }

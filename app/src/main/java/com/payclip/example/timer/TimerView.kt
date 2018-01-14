@@ -1,6 +1,6 @@
 package com.payclip.example.timer
 
-import android.view.LayoutInflater
+import android.view.View
 import com.payclip.arc.view.AndroidArcView
 import com.payclip.example.R
 import kotlinx.android.synthetic.main.controller_timer.view.*
@@ -9,11 +9,9 @@ import java.text.DecimalFormat
 /**
  * Created by ryantaylor on 1/11/18.
  */
-class TimerView(timerController: TimerController, layoutInflater: LayoutInflater) : AndroidArcView<TimerAction, TimerState, TimerTrigger>(timerController, layoutInflater) {
+class TimerView(timerController: TimerController, view: View) : AndroidArcView<TimerAction, TimerState, TimerTrigger>(timerController, view) {
 
     private val decimalFormat = DecimalFormat("#.00")
-
-    override fun layoutId() = R.layout.controller_timer
 
     init {
         view.timer_trigger.setOnClickListener { timerController.dispatch(TimerAction.ToggleTimer) }

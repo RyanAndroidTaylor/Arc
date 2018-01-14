@@ -16,9 +16,13 @@ import com.payclip.arc.view.AndroidArcView
  */
 abstract class ConductorArcController<A : ArcAction, S : ArcState, T : ArcTrigger> : Controller(), ArcController<A, S, T> {
 
+    abstract val layoutId: Int
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup): View {
         return createArcView(inflater).let {
             arcView = it
+
+            bind(it.view)
 
             it.view
         }
@@ -41,6 +45,8 @@ abstract class ConductorArcController<A : ArcAction, S : ArcState, T : ArcTrigge
         else
             activity?.runOnUiThread { arcView?.react(trigger) }
     }
+
+    abstract fun bind(view: View)
 
     abstract fun createArcView(inflater: LayoutInflater): AndroidArcView<A, S, T>
 }
